@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Revibit · Revitalizar el centro de Cartagena, juntos</title>
   <meta name="description" content="Revibit quiere que los vecinos de Cartagena participen en la rehabilitación de viviendas y edificios del centro. Apúntate a la lista de interés.">
-  <meta name="robots" content="noindex, nofollow"><!-- quitar al lanzar -->
   <meta name="theme-color" content="#021B28">
   <meta property="og:title" content="Revibit · Revitalizar el centro de Cartagena, juntos">
   <meta property="og:description" content="Viviendas vacías, edificios cerrados y solares abandonados. Les devolvemos la vida con constructoras locales y con los vecinos.">
@@ -14,7 +13,6 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
-  <script src="gate.js"></script>
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -118,11 +116,11 @@
           </article>
           <article class="card flat">
             <h3>Hay ganas de vivir en el centro</h3>
-            <p>Cada vez más gente quiere vivir cerca del trabajo, del puerto y de los servicios, pero gran parte de la oferta del centro está por reformar.</p>
+            <p>Mucha gente quiere vivir cerca del trabajo, del puerto y de los servicios, pero gran parte de la oferta del centro está por reformar.</p>
           </article>
           <article class="card flat">
             <h3>Los vecinos quieren participar</h3>
-            <p>Muchos cartageneros quieren que su dinero sirva para algo que puedan ver. Revibit quiere hacerlo posible de forma sencilla y clara.</p>
+            <p>Creemos que muchos cartageneros querrían que su dinero sirva para algo que puedan ver. Revibit quiere hacerlo posible de forma sencilla y clara.</p>
           </article>
         </div>
       </div>
@@ -158,12 +156,14 @@
           <div class="field"><label for="p-municipio">Municipio</label><input id="p-municipio" name="municipio" autocomplete="address-level2"></div>
           <div class="field"><label for="p-cantidad">¿Cuánto te plantearías aportar, aproximadamente?</label>
             <select id="p-cantidad" name="cantidad"><option>Aún no lo sé</option><option>Menos de 1.000 €</option><option>1.000–2.500 €</option><option>2.500–5.000 €</option><option>Más de 5.000 €</option></select>
-            <span class="hint">Orientativo y sin compromiso.</span></div>
+            <span class="hint">Orientativo y sin compromiso. Esto no es una oferta ni una reserva de inversión: solo nos ayuda a dimensionar el primer proyecto.</span></div>
           <div class="field"><label for="p-confianza">¿Qué te daría confianza para participar?</label><textarea id="p-confianza" name="confianza" rows="3"></textarea></div>
-          <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="privacidad.html">Política de privacidad</a> y acepto que Revibit trate mis datos para responder a mi solicitud y enviarme información sobre el proyecto. Puedo darme de baja en cualquier momento. <span class="req" aria-hidden="true">*</span></span></label>
+          <label class="check"><input type="checkbox" name="mayor_edad" value="Sí" required> <span>Soy mayor de 18 años. <span class="req" aria-hidden="true">*</span></span></label>
+          <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="privacidad.html">Política de privacidad</a> y acepto que Revibit trate mis datos para gestionar mi solicitud. <span class="req" aria-hidden="true">*</span></span></label>
+          <label class="check"><input type="checkbox" name="novedades" value="Sí"> <span>Quiero recibir por correo novedades del proyecto. Puedo darme de baja en cualquier momento.</span></label>
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-navy btn-block" type="submit">Apuntarme</button>
-          <p class="layer">Responsable: [titular de la web]. Finalidad: gestionar tu solicitud y, si lo aceptas, informarte del proyecto. Legitimación: tu consentimiento. Destinatarios: Google, que aloja la hoja de cálculo donde se guardan los formularios, por cuenta de Revibit; no se ceden datos a terceros. Derechos: acceso, rectificación, supresión y otros, escribiendo a [correo de contacto]. Más información en la <a href="privacidad.html">Política de privacidad</a>.</p>
+          <p class="layer">Responsable: Ignacio Medrano Coello (proyecto Revibit). Finalidades: gestionar tu solicitud y, solo si marcas la casilla de novedades, enviarte información del proyecto por correo. Legitimación: tu consentimiento. Destinatarios: Google LLC (EE. UU.), que aloja por cuenta de Revibit la hoja de cálculo donde se guardan los formularios y está adherida al Marco de Privacidad de Datos UE–EE. UU.; no se ceden datos a terceros. Derechos: acceso, rectificación, supresión y otros, escribiendo a revibit.interno@gmail.com. Más información en la <a href="privacidad.html">Política de privacidad</a>.</p>
           <p class="msg" role="status" aria-live="polite"></p>
         </form>
 
@@ -176,10 +176,10 @@
           <div class="field"><label for="c-email">Correo electrónico <span class="req" aria-hidden="true">*</span></label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="c-tel">Teléfono</label><input id="c-tel" name="telefono" type="tel" autocomplete="tel"></div>
           <div class="field"><label for="c-proyecto">Cuéntanos brevemente el proyecto <span class="req" aria-hidden="true">*</span></label><textarea id="c-proyecto" name="proyecto" rows="4" required></textarea></div>
-          <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="privacidad.html">Política de privacidad</a> y acepto que Revibit trate mis datos para responder a mi solicitud. <span class="req" aria-hidden="true">*</span></span></label>
+          <label class="check"><input type="checkbox" name="privacidad" required> <span>He leído la <a href="privacidad.html">Política de privacidad</a> y acepto que Revibit trate mis datos para gestionar mi solicitud. <span class="req" aria-hidden="true">*</span></span></label>
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-navy btn-block" type="submit">Enviar</button>
-          <p class="layer">Responsable: [titular de la web]. Finalidad: valorar tu proyecto y contactarte. Legitimación: tu consentimiento. Destinatarios: Google, que aloja la hoja de cálculo donde se guardan los formularios, por cuenta de Revibit. Derechos: escribiendo a [correo de contacto]. Más información en la <a href="privacidad.html">Política de privacidad</a>.</p>
+          <p class="layer">Responsable: Ignacio Medrano Coello (proyecto Revibit). Finalidad: valorar tu proyecto y contactarte. Legitimación: tu consentimiento. Destinatarios: Google LLC (EE. UU.), que aloja por cuenta de Revibit la hoja de cálculo donde se guardan los formularios y está adherida al Marco de Privacidad de Datos UE–EE. UU.; no se ceden datos a terceros. Derechos: escribiendo a revibit.interno@gmail.com. Más información en la <a href="privacidad.html">Política de privacidad</a>.</p>
           <p class="msg" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -208,7 +208,7 @@
         <p class="disclaimer">Revibit está en fase de preparación y actualmente no ofrece ningún producto de inversión. La información de esta web es divulgativa y no constituye una oferta ni una recomendación de inversión.</p>
       </div>
       <div class="footer-links">
-        <a href="mailto:[correo de contacto]">[correo de contacto]</a>
+        <a href="mailto:revibit.interno@gmail.com">revibit.interno@gmail.com</a>
         <a href="privacidad.html">Política de privacidad</a>
         <a href="aviso-legal.html">Aviso legal</a>
         <a href="privacidad.html#cookies">Cookies: esta web no usa</a>

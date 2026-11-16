@@ -52,6 +52,11 @@
         const data = new URLSearchParams(new FormData(form));
         data.set("formulario", form.dataset.form); // persona | constructora → pestaña de la hoja
         data.set("privacidad", "Aceptada " + new Date().toLocaleString("es-ES")); // registro del consentimiento
+        if (form.dataset.form === "persona") {
+          // Consentimiento opcional para novedades: se envía siempre, marcado o no
+          data.set("novedades", form.elements["novedades"].checked ? "Sí" : "No");
+          data.set("mayor_edad", form.elements["mayor_edad"].checked ? "Sí" : "No");
+        }
         data.set("origen", location.href.split("#")[0]);
         // Google Apps Script no permite leer su respuesta desde otra web (CORS): se envía como
         // formulario normal y, si no hay error de red, se da por recibido.
