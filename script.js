@@ -1,9 +1,10 @@
 /* Revibit · landing. Pestañas de formulario y envío.
-   FORM_ENDPOINT: dirección del servicio que recibe los formularios (p. ej. Formspree o Tally).
+   FORM_ENDPOINT: dirección de la aplicación web de Google Apps Script (https://script.google.com/macros/s/…/exec),
+   que guarda cada envío en Google Sheets (ver 06_Producto/formulario_google/).
    Mientras esté vacío, los formularios no envían nada y lo dicen claramente. */
 (function () {
   "use strict";
-  const FORM_ENDPOINT = ""; // ← pegar aquí la URL del servicio de formularios
+  const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwfiQ0v1y38jl50gaqi2CEWt8Fye_v84uIDwWsOAurIMfMEKIuGzV-rMqL1e-3ROuLs/exec"; // ← pegar aquí la dirección /exec de Google Apps Script
 
   // ---------- Pestañas ----------
   const tabs = [...document.querySelectorAll('[role="tab"]')];
@@ -40,23 +41,28 @@
         if (bad && !first) first = el;
       });
       if (first) { say("Revisa los campos marcados con *.", false); first.focus(); return; }
-      if (form.web.value) return; // trampa para bots
+      if (form.elements["_gotcha"].value) return; // trampa para bots (Formspree también la filtra)
 
       if (!FORM_ENDPOINT) { say("Formulario todavía sin conectar: no se ha enviado nada. (Versión de prueba)", false); return; }
 
       const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
+      const label = btn.textContent;
+      btn.disabled = true; btn.textContent = "Enviando…";
       try {
-        const data = new FormData(form);
-        data.delete("web");
-        data.append("tipo", form.dataset.form);
-        const r = await fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
-        if (!r.ok) throw new Error(r.status);
+        const data = new URLSearchParams(new FormData(form));
+        data.set("formulario", form.dataset.form); // persona | constructora → pestaña de la hoja
+        data.set("privacidad", "Aceptada " + new Date().toLocaleString("es-ES")); // registro del consentimiento
+        data.set("origen", location.href.split("#")[0]);
+        // Google Apps Script no permite leer su respuesta desde otra web (CORS): se envía como
+        // formulario normal y, si no hay error de red, se da por recibido.
+        await fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", body: data });
         form.reset();
+        form.querySelectorAll("[aria-invalid]").forEach((el) => el.removeAttribute("aria-invalid"));
         say(form.dataset.form === "persona" ? "¡Gracias! Te escribiremos cuando tengamos novedades del primer proyecto." : "Gracias. Te llamaremos en los próximos días.", true);
       } catch (err) {
-        say("No se ha podido enviar. Inténtalo de nuevo en unos minutos.", false);
-      } finally { btn.disabled = false; }
+        say("No se ha podido enviar. Inténtalo de nuevo en unos minutos o escríbenos por correo.", false);
+        if (window.console) console.warn("Formulario:", err.message);
+      } finally { btn.disabled = false; btn.textContent = label; }
     });
   });
 })();
