@@ -1,7 +1,7 @@
 /* Revibit · landing. Colores y tipografía del Manual de Marca (08_Marca).
    El verde neón solo sobre fondos oscuros; sobre claro, verde texto #007A55 (5,4:1). */
-@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Regular.woff2") format("woff2"), url("fonts/Montserrat-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Bold.woff2") format("woff2"), url("fonts/Montserrat-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
 
 :root {
   --navy: #021b28;
