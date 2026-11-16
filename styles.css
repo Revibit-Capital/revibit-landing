@@ -31,8 +31,7 @@ a { color: var(--green); }
 .skip:focus { left: 12px; }
 .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 .wrap.narrow { max-width: 760px; }
-.dot { color: var(--green); }
-.hero .dot, .quote .dot, .topbar .dot, .footer .dot { color: var(--neon); }
+.dot { color: var(--neon); } /* el punto de la marca, siempre en verde neón (decorativo) */
 h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
 h2 { font-size: clamp(28px, 4.2vw, 42px); }
 h3 { font-size: 20px; }
