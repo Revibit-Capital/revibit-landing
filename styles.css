@@ -106,11 +106,6 @@ h3 { font-size: 20px; }
 .badge { display: inline-block; font-size: 12px; font-weight: 700; background: var(--neon); color: var(--navy); padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
 
 /* Cita */
-.quote { background: var(--navy); color: var(--white); padding: 96px 0; }
-.quote blockquote { margin: 0; max-width: 900px; }
-.quote blockquote p { font-size: clamp(28px, 4.2vw, 46px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
-.quote footer { margin-top: 20px; color: rgba(255,255,255,.8); font-size: 18px; }
-.quote strong { color: var(--neon); }
 
 /* Pestañas y formularios */
 .tabs { display: inline-flex; gap: 4px; padding: 5px; margin: 32px 0 18px; background: var(--gray); border-radius: 999px; }

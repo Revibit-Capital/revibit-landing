@@ -71,11 +71,13 @@
       }
     }
     // al terminar (o si el usuario interrumpe): devolver las parcelas a su sitio
-    fin = () => {
+    const destTrasAsm = asm && !!(asm.compareDocumentPosition(dest) & Node.DOCUMENT_POSITION_FOLLOWING);
+    fin = (llegado) => {
       fin = null;
       if (!delta) return;
       const y = scrollY, aEndF = aTop + asm.offsetHeight;
       asm.classList.remove("flujo");
+      if (llegado) { if (destTrasAsm) scrollTo({ top: y + delta, behavior: "instant" }); return; }
       if (y >= aEndF) scrollTo({ top: y + delta, behavior: "instant" });
       else if (y > aTop) scrollTo({ top: aTop + asm.offsetHeight - innerHeight, behavior: "instant" });
     };
@@ -88,12 +90,12 @@
       const u = Math.min(1, Math.max(0, (t - t0) / dur));
       scrollTo({ top: y0 + (y1 - y0) * ease(u), behavior: "instant" });
       if (u < 1) anim = requestAnimationFrame(paso);
-      else { anim = null; if (fin) fin(); }
+      else { anim = null; if (fin) fin(true); }
     };
     anim = requestAnimationFrame(paso);
     // salvaguarda: si el navegador no anima (pestaña en segundo plano), llegar igualmente
     const mio = anim;
-    setTimeout(() => { if (anim === mio) { cancelAnimationFrame(anim); anim = null; scrollTo({ top: y1, behavior: "instant" }); if (fin) fin(); } }, dur + 400);
+    setTimeout(() => { if (anim === mio) { cancelAnimationFrame(anim); anim = null; scrollTo({ top: y1, behavior: "instant" }); if (fin) fin(true); } }, dur + 400);
   }));
 
   // ---------- Formularios ----------
