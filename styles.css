@@ -123,6 +123,12 @@ h3 { font-size: 20px; }
 .check { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
 .check input { width: 22px; height: 22px; margin-top: 2px; flex-shrink: 0; accent-color: var(--green); }
 .layer { font-size: 13px; color: var(--text-2); margin: 0; }
+details.layer summary { cursor: pointer; font-weight: 700; list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+details.layer summary::-webkit-details-marker { display: none; }
+details.layer summary::after { content: "+"; font-size: 16px; line-height: 1; color: var(--green); }
+details.layer[open] summary::after { content: "–"; }
+details.layer p { margin: 8px 0 0; }
+.layer-links { font-size: 13px; margin: 6px 0 0; }
 .msg { margin: 0; font-weight: 700; }
 .msg.ok { color: var(--green); }
 .msg.err { color: #b42318; }
