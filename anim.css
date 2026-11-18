@@ -104,7 +104,7 @@
 .compare { position: relative; aspect-ratio: 5 / 4; background: #e9e9e9; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(2,27,40,.18); }
 .cmp-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .cmp-after { clip-path: inset(0 0 0 var(--cut, 50%)); overflow: hidden; }
-.cmp-after img { width: 100%; height: 100%; object-fit: cover; display: block; transform: translate(-1.9%, -2.3%) scale(1.07); }
+.cmp-after img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cmp-handle { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 3px; background: #fff; transform: translateX(-50%); pointer-events: none; }
 .cmp-handle span { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; border-radius: 999px; background: var(--neon); border: 3px solid #fff; transform: translate(-50%, -50%); box-shadow: 0 4px 14px rgba(0,0,0,.25); }
 .cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
@@ -166,3 +166,12 @@
 .assemble .dot { color: var(--neon); }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(0,255,179,.55); } 100% { box-shadow: 0 0 0 9px rgba(0,255,179,0); } }
 .compare img { object-position: 50% 22%; }
+/* Mientras un botón lleva la página hasta otra sección: las parcelas pasan
+   como una sección normal (ya encajadas y encendidas), sin tramo fijo. */
+.assemble.flujo { height: 100vh; }
+.assemble.flujo .asm-sticky { position: relative; }
+.assemble.flujo .asm-grid span { transform: none !important; transition: none; }
+.assemble.flujo .asm-grid span:nth-child(3), .assemble.flujo .asm-grid span:nth-child(6), .assemble.flujo .asm-grid span:nth-child(8),
+.assemble.flujo .asm-grid span:nth-child(10), .assemble.flujo .asm-grid span:nth-child(13), .assemble.flujo .asm-grid span:nth-child(17),
+.assemble.flujo .asm-grid span:nth-child(20), .assemble.flujo .asm-grid span:nth-child(24) { background: var(--neon); border-color: var(--neon); box-shadow: 0 0 40px rgba(0,255,179,.4); }
+.assemble.flujo .asm-text { opacity: 1; transform: none; }
