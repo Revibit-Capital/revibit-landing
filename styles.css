@@ -187,3 +187,86 @@ html.locked body > *:not(.gate) { display: none !important; }
 .gate-box input { font: inherit; font-size: 16px; min-height: 52px; border-radius: 999px; padding: 0 20px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); color: var(--white); }
 .gate-box input::placeholder { color: rgba(255,255,255,.6); }
 .gate-err { color: #ffb4a8 !important; min-height: 1.4em; font-weight: 700; }
+
+/* Por qué Revibit · pestañas con tarjeta (estructura tipo Revolut, colores Revibit) */
+.why { background: var(--navy); color: var(--white); padding: 112px 0; }
+.why-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+.why-media { position: relative; aspect-ratio: 4 / 4.5; border-radius: 28px; overflow: hidden; background: var(--navy-2); }
+.why-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.03); transition: opacity .45s ease, transform .6s ease; }
+.why-slide.is-on { opacity: 1; transform: none; }
+.why-slide > img { width: 100%; height: 100%; object-fit: cover; }
+.why-credit { position: absolute; top: 14px; right: 16px; font-size: 11px; color: rgba(255,255,255,.75); background: rgba(2,27,40,.55); padding: 3px 8px; border-radius: 999px; }
+.why-ui { position: absolute; left: 20px; right: 20px; bottom: 20px; background: rgba(2,27,40,.82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-radius: 22px; padding: 6px; }
+.why-row { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 16px; }
+.why-row.hi { background: rgba(255,255,255,.1); }
+.why-row b { font-weight: 400; font-size: 18px; flex: 1; }
+.why-row em { font-style: normal; font-size: 16px; color: rgba(255,255,255,.75); }
+.why-row em.tag { font-size: 12px; font-weight: 700; color: var(--navy); background: var(--neon); padding: 3px 10px; border-radius: 999px; }
+.why-ic { position: relative; flex: none; width: 46px; height: 46px; border-radius: 999px; background: var(--neon); display: grid; place-items: center; }
+.why-ic svg { width: 22px; height: 22px; fill: none; stroke: var(--navy); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.why-ic .ok { position: absolute; right: -4px; bottom: -4px; width: 20px; height: 20px; border-radius: 999px; background: var(--white); border: 2px solid var(--navy); }
+.why-ic .ok::after { content: ""; position: absolute; left: 5px; top: 2px; width: 5px; height: 9px; border: solid var(--navy); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.why-avs { display: flex; flex: none; }
+.why-avs i { width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 13px; background: var(--white); color: var(--navy); border: 2px solid var(--navy); margin-left: -10px; }
+.why-avs i:first-child { margin-left: 0; background: var(--neon); }
+.why-avs i:last-child { background: var(--sand); }
+.why-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.why-tabs button { font: inherit; font-weight: 700; font-size: 17px; padding: 13px 26px; border-radius: 999px; border: 2px solid var(--white); background: transparent; color: var(--white); cursor: pointer; transition: background .2s, color .2s; }
+.why-tabs button:hover { background: rgba(255,255,255,.1); }
+.why-tabs button[aria-selected="true"] { background: var(--white); color: var(--navy); }
+.why-panel p { font-size: 19px; line-height: 1.55; margin: 0; color: rgba(255,255,255,.92); max-width: 560px; }
+.why-panel p.why-note { font-size: 14px; margin-top: 14px; color: rgba(255,255,255,.7); }
+.why-panel:not([hidden]) { animation: whyIn .45s ease both; }
+@keyframes whyIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.why-cta { display: inline-block; margin-top: 34px; background: var(--white); color: var(--navy); font-weight: 700; padding: 15px 30px; border-radius: 999px; text-decoration: none; transition: background .2s; }
+.why-cta:hover { background: var(--neon); }
+@media (max-width: 900px) {
+  .why { padding: 72px 0; }
+  .why-grid { grid-template-columns: 1fr; gap: 40px; }
+  .why-grid { gap: 0; }
+  .why-text { display: contents; }
+  .why-kicker { order: -1; margin-bottom: 24px; }
+  .why-panel { margin-top: 36px; }
+}
+@media (max-width: 520px) {
+  .why-ui { left: 12px; right: 12px; bottom: 12px; }
+  .why-row { gap: 12px; padding: 12px; }
+  .why-row b { font-size: 16px; }
+  .why-tabs { gap: 8px; flex-wrap: nowrap; }
+  .why-tabs button { padding: 10px 14px; font-size: 14px; }
+  .why-row em:not(.tag) { display: none; }
+  .why-cta { margin-top: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .why-slide, .why-panel:not([hidden]) { transition: none; animation: none; } }
+/* Pestañas Accesible y Transparente: ilustraciones dibujadas (sin fotos) */
+.why-ilus { width: 100%; height: 100%; display: block; }
+.why-ilus .pz { fill: rgba(255,255,255,.07); stroke: rgba(255,255,255,.14); stroke-width: 1; }
+.why-ilus .pz.on { fill: var(--neon); stroke: none; }
+.why-slide.is-on .pz.on { animation: pzOn .5s ease both; animation-delay: calc(var(--i) * 70ms + .15s); }
+@keyframes pzOn { from { fill: rgba(255,255,255,.07); } 60% { fill: #9dffe0; } to { fill: var(--neon); } }
+@media (prefers-reduced-motion: reduce) { .why-slide.is-on .pz.on { animation: none; } }
+/* Título de la sección, más visible */
+.why .dot { color: var(--neon); }
+.why-kicker { font-size: clamp(28px, 4.2vw, 42px); letter-spacing: -0.02em; text-transform: none; color: var(--white); margin-bottom: 28px; }
+.why-panel h3 { font-size: clamp(26px, 3vw, 36px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 18px; }
+/* Transparente: panel de avance de obra */
+.why-dash { position: absolute; left: 24px; right: 24px; top: 52px; padding: 22px 22px 18px; border-radius: 22px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.wd-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.wd-label { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.75); }
+.wd-date { font-size: 12px; color: rgba(255,255,255,.55); white-space: nowrap; }
+.wd-big { margin-top: 10px; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.wd-big span { color: rgba(255,255,255,.5); }
+.wd-sub { font-size: 14px; color: var(--neon); font-weight: 700; margin-top: 4px; }
+.wd-cw { position: relative; margin-top: 16px; }
+.wd-chart { display: block; width: 100%; height: 96px; overflow: visible; }
+.wd-pt { position: absolute; left: 68.3%; top: 30.9%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: var(--neon); box-shadow: 0 0 0 6px rgba(0,255,179,.18); }
+.wd-leg { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; color: rgba(255,255,255,.7); }
+.wd-leg i { display: inline-block; width: 16px; height: 0; border-top: 2.5px solid var(--neon); vertical-align: middle; margin-right: 7px; }
+.wd-leg i.p { border-top: 2px dashed rgba(255,255,255,.5); }
+.why-slide[data-slide="transparente"] { background: radial-gradient(420px 300px at 100% 0%, rgba(0,255,179,.16), transparent 60%), linear-gradient(160deg, var(--port) 0%, var(--navy-2) 80%); }
+.why-slide.is-on .wd-real { stroke-dasharray: 400; animation: wdDraw 1.2s ease .2s both; }
+.why-slide.is-on .wd-area, .why-slide.is-on .wd-pt { animation: wdFade .6s ease 1.1s both; }
+@keyframes wdDraw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+@keyframes wdFade { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 520px) { .why-dash { left: 14px; right: 14px; top: 44px; padding: 18px 16px 14px; } .wd-big { font-size: 28px; } .wd-chart { height: 70px; } .wd-chart { height: 90px; } .wd-pt { display: block; } [data-slide="transparente"] .why-ui { display: none; } }
+@media (prefers-reduced-motion: reduce) { .why-slide.is-on .wd-real, .why-slide.is-on .wd-area, .why-slide.is-on .wd-pt { animation: none; } }

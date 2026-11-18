@@ -71,3 +71,26 @@
     });
   });
 })();
+
+// Por qué Revibit: pestañas (clic y flechas del teclado)
+(() => {
+  const tabs = [...document.querySelectorAll(".why-tabs [role=tab]")];
+  if (!tabs.length) return;
+  const elige = (t, foco) => {
+    tabs.forEach((b) => {
+      const on = b === t;
+      b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+      document.querySelector('.why-slide[data-slide="' + b.dataset.tab + '"]').classList.toggle("is-on", on);
+    });
+    if (foco) t.focus();
+  };
+  tabs.forEach((b, i) => {
+    b.addEventListener("click", () => elige(b));
+    b.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); elige(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
